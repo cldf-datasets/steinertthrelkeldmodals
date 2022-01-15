@@ -1,0 +1,17 @@
+l	m	force	flavor	can
+l1	ima(’a)	weak	epistemic	1
+l1	ima(’a)	weak	reportative	0
+l1	ima(’a)	weak	deontic	0
+l1	ima(’a)	weak	circumstantial	0
+l1	ima(’a)	strong	epistemic	1
+l1	ima(’a)	strong	reportative	0
+l1	ima(’a)	strong	deontic	0
+l1	ima(’a)	strong	circumstantial	0
+l2	gat	weak	epistemic	1
+l2	gat	weak	reportative	1
+l2	gat	weak	deontic	0
+l2	gat	weak	circumstantial	0
+l2	gat	strong	epistemic	1
+l2	gat	strong	reportative	1
+l2	gat	strong	deontic	0
+l2	gat	strong	circumstantial	0
