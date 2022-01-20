@@ -52,7 +52,6 @@ class Dataset(BaseDataset):
         # link forces
 
         modal_id = 0
-        unit_obs_id = 0
         args.writer.objects["ParameterTable"].append(dict(ID="modal"))
 
         force_flavor_pairs = set()
@@ -75,9 +74,10 @@ class Dataset(BaseDataset):
                     )
                 )
                 modal_id += 1
+                unit_obs_id = 0
                 for can, rrrows in itertools.groupby(rrows, lambda r: r["can"]):
-                    unit_obs_id += 1
                     for row in rrrows:
+                        unit_obs_id += 1
                         test_dict = dict(
                             ID=f"{modal_id}-{unit_obs_id}",
                             Language_ID=lid,
