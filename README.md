@@ -12,6 +12,5 @@ Inside a virutal env:
 * I had an issue using `pycldf.term_uri` for the column names in `add_table` (which I was doing following the README of `pycldf`).  What's the right way of making sure the column names are "correct" / linked up to the proper RDF terms?
 
 ## TODO
-* Update `iff` command
 * Glottolog for lang metadata
 * How to best to get descriptions for each force and flavor? (This is a data-gathering question for SST; they're not in the raw data at present)
