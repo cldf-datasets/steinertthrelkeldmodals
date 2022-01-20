@@ -12,7 +12,7 @@
         {
             "rdf:about": "https://github.com/cldf-datasets/steinertthrelkeldmodals",
             "rdf:type": "prov:Entity",
-            "dc:created": "ac0868d",
+            "dc:created": "daf66e8",
             "dc:title": "Repository"
         },
         {
@@ -326,6 +326,7 @@
             "url": "unit-values.csv"
         },
         {
+            "dc:extent": 4,
             "tableSchema": {
                 "columns": [
                     {
@@ -345,6 +346,7 @@
             "url": "flavors.csv"
         },
         {
+            "dc:extent": 2,
             "tableSchema": {
                 "columns": [
                     {

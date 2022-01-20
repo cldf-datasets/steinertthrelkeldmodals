@@ -94,3 +94,11 @@ class Dataset(BaseDataset):
             args.writer.objects["unit-parameters.csv"].append(
                 dict(ID=idx, Name=f"{pair[0]}.{pair[1]}", force=pair[0], flavor=pair[1])
             )
+
+        forces = set(pair[0] for pair in force_flavor_pairs)
+        for idx, force in enumerate(forces):
+            args.writer.objects["forces.csv"].append(dict(ID=idx, Name=force))
+
+        flavors = set(pair[1] for pair in force_flavor_pairs)
+        for idx, flavor in enumerate(flavors):
+            args.writer.objects["flavors.csv"].append(dict(ID=idx, Name=flavor))
