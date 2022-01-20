@@ -12,20 +12,20 @@
         {
             "rdf:about": "https://github.com/cldf-datasets/steinertthrelkeldmodals",
             "rdf:type": "prov:Entity",
-            "dc:created": "c94e54a",
+            "dc:created": "ac0868d",
             "dc:title": "Repository"
         },
         {
             "rdf:about": "https://github.com/glottolog/glottolog",
             "rdf:type": "prov:Entity",
-            "dc:created": "v4.5-7-gd9ee1a7c4f",
+            "dc:created": "v4.5-8-g20c2c0b98a",
             "dc:title": "Glottolog"
         }
     ],
     "prov:wasGeneratedBy": [
         {
             "dc:title": "python",
-            "dc:description": "3.8.10"
+            "dc:description": "3.10.0"
         },
         {
             "dc:title": "python-packages",
@@ -96,10 +96,6 @@
                         "required": false,
                         "separator": ";",
                         "name": "Source"
-                    },
-                    {
-                        "datatype": "json",
-                        "name": "expressivity"
                     }
                 ],
                 "foreignKeys": [
@@ -236,6 +232,136 @@
                 ]
             },
             "url": "languages.csv"
+        },
+        {
+            "dc:extent": 8,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "force"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "flavor"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "flavor"
+                        ],
+                        "reference": {
+                            "resource": "flavors.csv",
+                            "columnReference": [
+                                "Name"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "force"
+                        ],
+                        "reference": {
+                            "resource": "forces.csv",
+                            "columnReference": [
+                                "Name"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "url": "unit-parameters.csv"
+        },
+        {
+            "dc:extent": 16,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Language_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Parameter_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Value"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "UnitParameter_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "UnitValue"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Comment"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Source"
+                    }
+                ]
+            },
+            "url": "unit-values.csv"
+        },
+        {
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description"
+                    }
+                ]
+            },
+            "url": "flavors.csv"
+        },
+        {
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description"
+                    }
+                ]
+            },
+            "url": "forces.csv"
         }
     ]
 }
