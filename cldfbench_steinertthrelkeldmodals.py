@@ -19,7 +19,10 @@ class Dataset(BaseDataset):
         # NOTE: should the column names use `term_uri` and, if so, how?
         args.writer.cldf.add_table(
             "unit-parameters.csv",
-            "ID",
+            {
+                "name": "ID",
+                "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+            },
             "Name",
             "Description",
             "force",
@@ -27,20 +30,41 @@ class Dataset(BaseDataset):
         )
         args.writer.cldf.add_table(
             "unit-values.csv",
-            "ID",
-            "Language_ID",
-            "Parameter_ID",
-            "Value",
+            {
+                "name": "ID",
+                "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+            },
+            {
+                "name": "Value",
+                # FIXME: valueReference should be added to the ontology, in analogy to formReference.
+                #"propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#valueReference",
+            },
             "UnitParameter_ID",
             "UnitValue",
             "Comment",
             "Source",
         )
         args.writer.cldf.add_table(
-            "flavors.csv", "ID", "Name", "Description"
+            "flavors.csv",
+            {
+                "name": "ID",
+                "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+            },
+            "Name", "Description"
         )
         args.writer.cldf.add_table(
-            "forces.csv", "ID", "Name", "Description"
+            "forces.csv",
+            {
+                "name": "ID",
+                "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+            },
+            "Name", "Description"
+        )
+        args.writer.cldf.add_foreign_key(
+            "unit-values.csv", "Value", "ValueTable", "ID"
+        )
+        args.writer.cldf.add_foreign_key(
+            "unit-values.csv", "UnitParameter_ID", "unit-parameters.csv", "ID"
         )
         args.writer.cldf.add_foreign_key(
             "unit-parameters.csv", "flavor", "flavors.csv", "Name" 
@@ -73,32 +97,31 @@ class Dataset(BaseDataset):
                         Value=modal,
                     )
                 )
-                modal_id += 1
                 unit_obs_id = 0
                 for can, rrrows in itertools.groupby(rrows, lambda r: r["can"]):
                     for row in rrrows:
                         unit_obs_id += 1
                         test_dict = dict(
                             ID=f"{modal_id}-{unit_obs_id}",
-                            Language_ID=lid,
                             Parameter_ID="modal",
-                            Value=modal,
+                            Value=str(modal_id),
                             UnitParameter_ID=f"{row['force']}.{row['flavor']}",
                             UnitValue="can" if can == "1" else "cannot",
                         )
                         force_flavor_pairs.add((row["force"], row["flavor"]))
                         args.writer.objects["unit-values.csv"].append(test_dict)
+                modal_id += 1
 
         for idx, pair in enumerate(force_flavor_pairs):
             # TODO: refactor naming of pairs
             args.writer.objects["unit-parameters.csv"].append(
-                dict(ID=idx, Name=f"{pair[0]}.{pair[1]}", force=pair[0], flavor=pair[1])
+                dict(ID=f"{pair[0]}.{pair[1]}", Name=f"{pair[0]}.{pair[1]}", force=pair[0], flavor=pair[1])
             )
 
-        forces = set(pair[0] for pair in force_flavor_pairs)
+        forces = sorted(set(pair[0] for pair in force_flavor_pairs))
         for idx, force in enumerate(forces):
             args.writer.objects["forces.csv"].append(dict(ID=idx, Name=force))
 
-        flavors = set(pair[1] for pair in force_flavor_pairs)
+        flavors = sorted(set(pair[1] for pair in force_flavor_pairs))
         for idx, flavor in enumerate(flavors):
             args.writer.objects["flavors.csv"].append(dict(ID=idx, Name=flavor))

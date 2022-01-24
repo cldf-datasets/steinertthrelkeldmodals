@@ -12,20 +12,20 @@
         {
             "rdf:about": "https://github.com/cldf-datasets/steinertthrelkeldmodals",
             "rdf:type": "prov:Entity",
-            "dc:created": "76ae415",
+            "dc:created": "404c821",
             "dc:title": "Repository"
         },
         {
             "rdf:about": "https://github.com/glottolog/glottolog",
             "rdf:type": "prov:Entity",
-            "dc:created": "v4.5-8-g20c2c0b98a",
+            "dc:created": "v4.5-7-gd9ee1a7c4f",
             "dc:title": "Glottolog"
         }
     ],
     "prov:wasGeneratedBy": [
         {
             "dc:title": "python",
-            "dc:description": "3.10.0"
+            "dc:description": "3.8.10"
         },
         {
             "dc:title": "python-packages",
@@ -238,7 +238,7 @@
             "tableSchema": {
                 "columns": [
                     {
-                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
                         "name": "ID"
                     },
                     {
@@ -281,6 +281,9 @@
                             ]
                         }
                     }
+                ],
+                "primaryKey": [
+                    "ID"
                 ]
             },
             "url": "unit-parameters.csv"
@@ -290,19 +293,10 @@
             "tableSchema": {
                 "columns": [
                     {
-                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
                         "name": "ID"
                     },
                     {
-                        "datatype": "string",
-                        "name": "Language_ID"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "Parameter_ID"
-                    },
-                    {
-                        "datatype": "string",
                         "name": "Value"
                     },
                     {
@@ -321,6 +315,33 @@
                         "datatype": "string",
                         "name": "Source"
                     }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Value"
+                        ],
+                        "reference": {
+                            "resource": "values.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "UnitParameter_ID"
+                        ],
+                        "reference": {
+                            "resource": "unit-parameters.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
                 ]
             },
             "url": "unit-values.csv"
@@ -330,7 +351,7 @@
             "tableSchema": {
                 "columns": [
                     {
-                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
                         "name": "ID"
                     },
                     {
@@ -341,6 +362,9 @@
                         "datatype": "string",
                         "name": "Description"
                     }
+                ],
+                "primaryKey": [
+                    "ID"
                 ]
             },
             "url": "flavors.csv"
@@ -350,7 +374,7 @@
             "tableSchema": {
                 "columns": [
                     {
-                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
                         "name": "ID"
                     },
                     {
@@ -361,6 +385,9 @@
                         "datatype": "string",
                         "name": "Description"
                     }
+                ],
+                "primaryKey": [
+                    "ID"
                 ]
             },
             "url": "forces.csv"

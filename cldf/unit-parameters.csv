@@ -1,9 +1,9 @@
 ID,Name,Description,force,flavor
-0,weak.reportative,,weak,reportative
-1,strong.deontic,,strong,deontic
-2,strong.reportative,,strong,reportative
-3,weak.epistemic,,weak,epistemic
-4,weak.deontic,,weak,deontic
-5,strong.epistemic,,strong,epistemic
-6,strong.circumstantial,,strong,circumstantial
-7,weak.circumstantial,,weak,circumstantial
+weak.deontic,weak.deontic,,weak,deontic
+weak.epistemic,weak.epistemic,,weak,epistemic
+strong.circumstantial,strong.circumstantial,,strong,circumstantial
+strong.deontic,strong.deontic,,strong,deontic
+weak.reportative,weak.reportative,,weak,reportative
+weak.circumstantial,weak.circumstantial,,weak,circumstantial
+strong.epistemic,strong.epistemic,,strong,epistemic
+strong.reportative,strong.reportative,,strong,reportative

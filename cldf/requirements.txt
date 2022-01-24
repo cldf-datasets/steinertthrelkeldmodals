@@ -1,8 +1,8 @@
 appdirs==1.4.4
 bs4==0.0.1
-certifi==2020.6.20
+certifi==2021.10.8
 cldfbench==1.9.0
--e git+https://github.com/cldf-datasets/steinertthrelkeldmodals.git@76ae415fa69021e5c14bfbeceeabff232b9f8f5b#egg=cldfbench_steinertthrelkeldmodals
+-e git+https://github.com/cldf-datasets/steinertthrelkeldmodals.git@404c8212cb8dc1dc61a8b1565a4400db66ba2dee#egg=cldfbench_steinertthrelkeldmodals
 cldfcatalog==1.4.0
 clldutils==3.10.1
 colorlog==6.6.0
@@ -29,10 +29,11 @@ rfc3986==2.0.0
 six==1.16.0
 smmap==5.0.0
 soupsieve==2.3.1
-SQLAlchemy==1.4.30
+SQLAlchemy==1.4.29
 tabulate==0.8.9
 termcolor==1.1.0
 tqdm==4.62.3
 uritemplate==4.1.1
 urllib3==1.26.8
 zenodoclient==0.4.1
+zipp==3.7.0
