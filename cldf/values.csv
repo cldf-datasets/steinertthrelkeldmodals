@@ -1,3 +1,3 @@
-ID,Language_ID,Parameter_ID,Value,Code_ID,Comment,Source,expressivity
-1,l1,modal,ima(’a),,,,"{""cannot"": [[""weak"", ""reportative""], [""weak"", ""deontic""], [""weak"", ""circumstantial""], [""strong"", ""reportative""], [""strong"", ""deontic""], [""strong"", ""circumstantial""]], ""can"": [[""weak"", ""epistemic""], [""strong"", ""epistemic""]]}"
-2,l2,modal,gat,,,,"{""cannot"": [[""weak"", ""deontic""], [""weak"", ""circumstantial""], [""strong"", ""deontic""], [""strong"", ""circumstantial""]], ""can"": [[""weak"", ""epistemic""], [""weak"", ""reportative""], [""strong"", ""epistemic""], [""strong"", ""reportative""]]}"
+ID,Language_ID,Parameter_ID,Value,Code_ID,Comment,Source
+0,l1,modal,ima(’a),,,
+1,l2,modal,gat,,,

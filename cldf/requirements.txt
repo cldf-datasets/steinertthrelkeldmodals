@@ -2,6 +2,7 @@ appdirs==1.4.4
 bs4==0.0.1
 certifi==2021.10.8
 cldfbench==1.9.0
+-e git+https://github.com/cldf-datasets/steinertthrelkeldmodals.git@404c8212cb8dc1dc61a8b1565a4400db66ba2dee#egg=cldfbench_steinertthrelkeldmodals
 cldfcatalog==1.4.0
 clldutils==3.10.1
 colorlog==6.6.0

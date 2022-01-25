@@ -12,7 +12,7 @@
         {
             "rdf:about": "https://github.com/cldf-datasets/steinertthrelkeldmodals",
             "rdf:type": "prov:Entity",
-            "dc:created": "c94e54a",
+            "dc:created": "404c821",
             "dc:title": "Repository"
         },
         {
@@ -96,10 +96,6 @@
                         "required": false,
                         "separator": ";",
                         "name": "Source"
-                    },
-                    {
-                        "datatype": "json",
-                        "name": "expressivity"
                     }
                 ],
                 "foreignKeys": [
@@ -236,6 +232,165 @@
                 ]
             },
             "url": "languages.csv"
+        },
+        {
+            "dc:extent": 8,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "force"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "flavor"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "flavor"
+                        ],
+                        "reference": {
+                            "resource": "flavors.csv",
+                            "columnReference": [
+                                "Name"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "force"
+                        ],
+                        "reference": {
+                            "resource": "forces.csv",
+                            "columnReference": [
+                                "Name"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "unit-parameters.csv"
+        },
+        {
+            "dc:extent": 16,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "name": "Value"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "UnitParameter_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "UnitValue"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Comment"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Source"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Value"
+                        ],
+                        "reference": {
+                            "resource": "values.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "UnitParameter_ID"
+                        ],
+                        "reference": {
+                            "resource": "unit-parameters.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "unit-values.csv"
+        },
+        {
+            "dc:extent": 4,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "flavors.csv"
+        },
+        {
+            "dc:extent": 2,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "forces.csv"
         }
     ]
 }
